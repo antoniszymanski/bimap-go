@@ -125,6 +125,10 @@ func (bm BiMap[K, V]) Size() int {
 	return len(bm.forward)
 }
 
+func (bm BiMap[K, V]) Empty() bool {
+	return bm.Size() == 0
+}
+
 func (bm BiMap[K, V]) All() iter.Seq2[K, V] {
 	return maps.All(bm.forward)
 }
