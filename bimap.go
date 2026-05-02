@@ -20,7 +20,7 @@ func New[K, V comparable](size int) BiMap[K, V] {
 	}
 }
 
-func From[K, V comparable](items map[K]V) BiMap[K, V] {
+func From[M ~map[K]V, K, V comparable](items M) BiMap[K, V] {
 	bm := New[K, V](len(items))
 	for key, val := range items {
 		bm.Set(key, val)
